@@ -12,13 +12,12 @@ import com.memoria.fastmath.model.PostResultsBodyParams;
 import com.memoria.fastmath.service.FastMathService;
 
 @RestController
-@RequestMapping("/math")
 public class FastMathController {
 	
 	@Autowired
 	private FastMathService fastMathService;
 	
-	@GetMapping("/")
+	@GetMapping("/math")
 	public Equation getNewEquation() {
 		try {
 			return fastMathService.getNewEquation();
@@ -28,7 +27,7 @@ public class FastMathController {
 		}
 	}
 	
-	@PostMapping("/")
+	@PostMapping("/math")
 	public Boolean postResults(@RequestBody PostResultsBodyParams body) {
 		return fastMathService.CheckResults(body.getEq(), body.getResults());
 	}

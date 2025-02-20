@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.memoria.fastmath.model.Equation;
@@ -18,6 +19,7 @@ import com.memoria.fastmath.model.PostResultsBodyParams;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@EnableWebMvc
 public class FastMathControllerTest {
 
     @Autowired
