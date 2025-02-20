@@ -27,7 +27,7 @@ public class FastMathControllerTest {
     
 	@Test
 	public void testGetNewEquation() throws Exception {
-        mockMvc.perform(get("/math"))
+        mockMvc.perform(get("/api"))
             .andDo(print())
             .andExpect(status().isOk());
 	}
@@ -38,7 +38,7 @@ public class FastMathControllerTest {
 		PostResultsBodyParams body = new PostResultsBodyParams();
 		body.setEq(new Equation(Operation.ADDITION, 2, 3, 5));
 		body.setResults(5);
-		mockMvc.perform(post("/math")
+		mockMvc.perform(post("/api")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(mapper.writeValueAsString(body))
 		)
