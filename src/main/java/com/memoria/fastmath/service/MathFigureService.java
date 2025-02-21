@@ -1,5 +1,6 @@
 package com.memoria.fastmath.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,12 @@ public class MathFigureService {
 		return repository.findById(id); 
 	}
 
-	public Iterable<MathFigure> getMathFigureByFieldID(Integer id) {
+	public Iterable<MathFigure> getMathFiguresByFieldID(Integer id) {
 		return repository.findByFieldID(id);
+	}
+	
+	public Iterable<MathFigure> getMathFiguresByFieldIDs(List<Integer> ids) {
+		return repository.findByFieldIDs(ids);
 	}
 	
 	public Iterable<MathFigure> getAllMathFigures() {
@@ -33,4 +38,5 @@ public class MathFigureService {
 	public void deleteMathFigureByID(Integer id) {
 		repository.deleteById(id);
 	}
+	
 }
