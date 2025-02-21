@@ -17,12 +17,16 @@ public class MathFigureService {
 	public Optional<MathFigure> getMathFigureByID(Integer id) {
 		return repository.findById(id); 
 	}
+
+	public Iterable<MathFigure> getMathFigureByFieldID(Integer id) {
+		return repository.findByFieldID(id);
+	}
 	
 	public Iterable<MathFigure> getAllMathFigures() {
 		return repository.findAll();
 	}
 	
-	public MathFigure updateMathFigureByID(MathFigure mathFigure) {
+	public MathFigure saveMathFigure(MathFigure mathFigure) {
 		return repository.save(mathFigure);
 	}
 	

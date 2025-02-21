@@ -22,7 +22,7 @@ public class FieldService {
 		return repository.findAll();
 	}
 	
-	public Field updateField(Field field) {
+	public Field saveField(Field field) {
 		return repository.save(field);
 	}
 	

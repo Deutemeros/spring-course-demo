@@ -12,7 +12,7 @@ import com.memoria.fastmath.model.PostResultsBodyParams;
 import com.memoria.fastmath.service.FastMathService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/fastmath")
 public class FastMathController {
 	
 	@Autowired
