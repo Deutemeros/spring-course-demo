@@ -19,7 +19,6 @@ import com.memoria.fastmath.model.PostResultsBodyParams;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@EnableWebMvc
 public class FastMathControllerTest {
 
     @Autowired
