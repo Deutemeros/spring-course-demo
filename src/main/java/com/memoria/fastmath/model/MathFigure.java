@@ -13,25 +13,21 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "mathFigure")
+@Table(name = "math_figure")
 public class MathFigure {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private Integer id;
 
-	@Column(name = "Name")
 	private String name;
 
-	@Column(name = "Description")
 	private String description;
 
-	@Column(name = "URL")
 	private String url;
 	
 	@ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name="Field_ID")
+    @JoinColumn(name="field_id")
 	private Field field;
 	
 }

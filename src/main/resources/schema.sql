@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS field (
+	id INTEGER NOT NULL,
+	name VARCHAR (255) NOT NULL,
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS math_figure (
+	id INTEGER NOT NULL,
+	name VARCHAR (255) NOT NULL,
+	description TEXT,
+	url VARCHAR (255),
+	field_id INTEGER NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (field_id) REFERENCES field(id) 
+);

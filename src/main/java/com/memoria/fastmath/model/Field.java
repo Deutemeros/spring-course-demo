@@ -17,21 +17,19 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "fields")
+@Table(name = "field")
 public class Field {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
 	private Integer id;
 	
-	@Column(name = "Name")
 	private String name;
 
 	@OneToMany(
 			   cascade = CascadeType.ALL, 
 			   orphanRemoval = true,
 			   fetch = FetchType.EAGER)
-	@JoinColumn(name = "Field_ID")
+	@JoinColumn(name = "field_id")
 	private List<MathFigure> mathFigure = new ArrayList<MathFigure>();
 }
