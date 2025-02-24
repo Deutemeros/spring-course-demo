@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.memoria.fastmath.model.MathFigure;
 import com.memoria.fastmath.service.MathFigureService;
 
+@RestController
 @RequestMapping("/api/mathfigure")
 public class MathFigureController {
 
@@ -24,28 +27,18 @@ public class MathFigureController {
 		return mathFigureService.getMathFigureByID(id);
 	}
 
-	@GetMapping("field/{id}")
-	public Iterable<MathFigure> getMathFigureByFieldID(@RequestParam Integer id) {
-		return mathFigureService.getMathFiguresByFieldID(id);
-	}
-	
-	@PostMapping("field")
-	public Iterable<MathFigure> getMathFigureByFieldID(List<Integer> ids) {
-		return mathFigureService.getMathFiguresByFieldIDs(ids);
-	}
-
 	@GetMapping("")
 	public Iterable<MathFigure> getAllMathFigures() {
 		return mathFigureService.getAllMathFigures();
 	}
 
 	@PostMapping("")
-	public MathFigure createMathFigure(MathFigure mathFigure) {
+	public MathFigure createMathFigure(@RequestBody MathFigure mathFigure) {
 		return mathFigureService.saveMathFigure(mathFigure);
 	}
 	
 	@PostMapping("{id}")
-	public MathFigure updateMathFigure(@RequestParam Integer id, MathFigure mathFigure) {
+	public MathFigure updateMathFigure(@RequestParam Integer id, @RequestBody MathFigure mathFigure) {
 		mathFigure.setId(id);
 		return mathFigureService.saveMathFigure(mathFigure);
 	}

@@ -23,6 +23,7 @@ public class FieldService {
 	}
 	
 	public Field saveField(Field field) {
+		System.out.println(field);
 		return repository.save(field);
 	}
 	
