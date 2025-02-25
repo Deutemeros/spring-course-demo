@@ -5,10 +5,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.memoria.fastmath.model.Field;
@@ -27,12 +27,12 @@ public class FieldController {
 	private MathFigureService mathFigureService;
 
 	@GetMapping("{id}")
-	public Optional<Field> getFieldByID(Integer id) {
+	public Optional<Field> getFieldByID(@PathVariable Integer id) {
 		return fieldService.getFieldByID(id);
 	}
 
 	@GetMapping("{id}/mathFigure")
-	public Iterable<MathFigure> getMathFigureByFieldID(@RequestParam Integer id) {
+	public Iterable<MathFigure> getMathFigureByFieldID(@PathVariable Integer id) {
 		return mathFigureService.getMathFiguresByFieldID(id);
 	}
 	
@@ -47,13 +47,13 @@ public class FieldController {
 	}
 	
 	@PostMapping("{id}")
-	public Field updateField(@RequestParam Integer id, @RequestBody Field field) {
+	public Field updateField(@PathVariable Integer id, @RequestBody Field field) {
 		field.setId(id);
 		return fieldService.saveField(field);
 	}
 
 	@DeleteMapping("{id}")
-	public void deleteFieldByID(@RequestParam Integer id) {
+	public void deleteFieldByID(@PathVariable Integer id) {
 		fieldService.deleteFieldByID(id);
 	}
 }

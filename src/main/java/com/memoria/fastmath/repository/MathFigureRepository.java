@@ -11,10 +11,10 @@ import com.memoria.fastmath.model.MathFigure;
 @Repository
 public interface MathFigureRepository extends CrudRepository<MathFigure, Integer>{
 
-	@Query("FROM Field WHERE id = ?1")
+	@Query("FROM MathFigure WHERE field.id = ?1")
 	public Iterable<MathFigure> findByFieldID(Integer id);
 	
-	@Query("FROM Field WHERE id IN ?1")
+	@Query("FROM MathFigure WHERE field.id IN ?1")
 	public Iterable<MathFigure> findByFieldIDs(List<Integer> ids);
 	
 }

@@ -1,18 +1,18 @@
 package com.memoria.fastmath.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.memoria.fastmath.model.MathFigure;
+import com.memoria.fastmath.model.MathFigureInput;
 import com.memoria.fastmath.service.MathFigureService;
 
 @RestController
@@ -23,7 +23,7 @@ public class MathFigureController {
 	private MathFigureService mathFigureService;
 
 	@GetMapping("{id}")
-	public Optional<MathFigure> getMathFigureByID(@RequestParam Integer id) {
+	public Optional<MathFigure> getMathFigureByID(@PathVariable Integer id) {
 		return mathFigureService.getMathFigureByID(id);
 	}
 
@@ -33,18 +33,18 @@ public class MathFigureController {
 	}
 
 	@PostMapping("")
-	public MathFigure createMathFigure(@RequestBody MathFigure mathFigure) {
-		return mathFigureService.saveMathFigure(mathFigure);
+	public MathFigure createMathFigure(@RequestBody MathFigureInput mathFigureInput) {
+		return mathFigureService.saveMathFigure(mathFigureInput);
 	}
 	
 	@PostMapping("{id}")
-	public MathFigure updateMathFigure(@RequestParam Integer id, @RequestBody MathFigure mathFigure) {
-		mathFigure.setId(id);
-		return mathFigureService.saveMathFigure(mathFigure);
+	public MathFigure updateMathFigure(@PathVariable Integer id, @RequestBody MathFigureInput mathFigureInput) {
+		mathFigureInput.setId(id);
+		return mathFigureService.saveMathFigure(mathFigureInput);
 	}
 
 	@DeleteMapping("{id}")
-	public void deleteMathFigureByID(@RequestParam Integer id) {
+	public void deleteMathFigureByID(@PathVariable Integer id) {
 		mathFigureService.deleteMathFigureByID(id);
 	}
 }
