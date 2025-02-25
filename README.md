@@ -18,10 +18,10 @@ Mettre en place une base de donnée et configurer son acces
 - Créer un fichier 'application.properties' dans ce dossier.
 - ```
 server.port=9000
-
 spring.datasource.url=jdbc:mysql://<hostname>:<port>/<db_name>
 spring.datasource.username=<db_username>
 spring.datasource.password=<db_password>
+spring.sql.init.mode=always
 ```
 Les tables de la db devraient se créé automatiquement au lancement de l'application.
 
